@@ -12,8 +12,8 @@ function Header(props) {
             }
         </ul>
 
-        <ul class="user">
-            <li>Nombre usuario <img src="./img/user.jpg" alt="" /></li>
+        <ul class="logo">
+            <li> <img src="./img/LOGO.jpg" alt="logo" /></li>
         </ul>
     </nav>
     )
