@@ -1,0 +1,23 @@
+import React from "react";
+import "../Header/style.css"; 
+
+import {Link} from "react-router-dom"; 
+
+function Header(props) {
+    return (
+        <nav>
+        <ul class="main-nav">
+            {
+                props.nav.map(elemento => <li> <Link to= {elemento.path}> {elemento.nombre} </Link> </li>)
+            }
+        </ul>
+
+        <ul class="user">
+            <li>Nombre usuario <img src="./img/user.jpg" alt="" /></li>
+        </ul>
+    </nav>
+    )
+}
+
+export default Header
+    
