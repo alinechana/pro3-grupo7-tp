@@ -1,18 +1,18 @@
 import React from "react";
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
-import { Route, Switch } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom';
 
 import Home from "./screens/Home/Home";
-import Peliculas from "./screens/Peliculas";
-import Series from "./screens/Series";
-import Resultados from "./screens/Resultados";
-import FavoritosPeliculas from "./screens/FavoritosPeliculas";
-import FavoritosSeries from "./screens/FavoritosSeries";
-import DetallePeliculas from "./screens/DetallePeliculas";
-import DetalleSeries from "./screens/DetalleSeries";
+import Peliculas from "./screens/Peliculas/Peliculas"
+import Series from "./screens/Series/Series";
+import Resultados from "./screens/Resultados/Resultados";
+import FavoritosPeliculas from "./screens/FavoritosPeliculas/FavoritosPeliculas";
+import FavoritosSeries from "./screens/FavoritosSeries/FavoritosSeries";
+import DetallePeliculas from "./screens/DetallePeliculas/DetallePeliculas";
+import DetalleSeries from "./screens/DetalleSeries/DetalleSeries";
 
 
 import logo from './logo.svg';
@@ -28,17 +28,17 @@ function App() {
 
     {
       nombre: "Favoritos",
-      path: ""
+      path: "/favoritos"
     },
 
     {
       nombre: "Ver todas: Populares",
-      path: ""
+      path: "/populares"
     },
 
     {
       nombre: "Ver todas: En cartel",
-      path: ""
+      path: "/cartel"
     },
   ];
 
@@ -50,11 +50,10 @@ function App() {
 
       <Switch>
         <Route path="/" component={Home} exact={true} />
-        <Route path="/about" component={About} />
-        <Route path="/personajes" component={Personajes} />
+        <Route path="/favoritos" component={About} />
         <Route path="/detalle:id" component={Detalle} />
-        <Route path="/RickandMorty" component={RickApi} />
-        <Route path="/DetalleRick" component={DetalleRick} />
+        <Route path="/detalleSeries" component={DetalleSeries} />
+        <Route path="/detallePeliculas" component={DetallePeliculas} />
 
       </Switch>
 
