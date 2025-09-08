@@ -21,6 +21,13 @@ class Formulario extends Component {
             busqueda: evento.target.value
         })
     }
+    render() {
+        return (<form onSubmit={(event) => this.prevenirDefault(event)}>
+            <input type="text" onChange={(event) => this.controlarCambios(event)} value={this.state.busqueda}
+            />
+            <button type="submit"> Buscar </button>
+        </form>)
+}
 }
 
 export default withRouter (Formulario)

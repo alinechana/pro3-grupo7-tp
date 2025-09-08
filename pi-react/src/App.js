@@ -19,6 +19,7 @@ function App() {
     <React.Fragment>
 
       <Header/>
+      <Home />
 
       <Switch>
         <Route path="/" component={Home} exact={true} />
@@ -28,6 +29,7 @@ function App() {
         
 
       </Switch>
+   
 
       <footer>
         <Footer />
