@@ -1,23 +1,35 @@
 import React from "react";
-import "../Header/style.css"; 
+import "../Header/style.css";
 
-import {Link} from "react-router-dom"; 
+import Formulario from "../Formulario/Formulario"
+
+import { Link } from "react-router-dom";
+
 
 function Header(props) {
     return (
         <nav>
-        <ul class="main-nav">
-            {
-                props.nav.map(elemento => <li> <Link to= {elemento.path}> {elemento.nombre} </Link> </li>)
-            }
-        </ul>
+            <ul class="main-nav">
 
-        <ul class="logo">
-            <li> <img src="./img/LOGO.jpg" alt="logo" /></li>
-        </ul>
-    </nav>
+                <li>  <Link to="/home"> Home </Link> </li>
+
+                <li>  <Link to="/populares"> Populares </Link> </li>
+
+                <li>  <Link to="/cartel"> En Cartel </Link> </li>
+
+                <li>  <Link to="/favoritos"> Favoritos </Link> </li>
+
+            </ul>
+
+            <ul class="logo">
+                <li> <img src="./img/LOGO.jpg" alt="logo" /></li>
+            </ul>
+
+            <Formulario />
+
+        </nav>
     )
 }
 
 export default Header
-    
+
