@@ -22,19 +22,21 @@ class Home extends Component {
             }))
             .catch(err => console.error(err));
 
-    }
-
-
-    componentDidMount() {
         fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&api_key=85b07e442aa3edd3ac9d0648eef992c3')
             .then(res => res.json())
             .then((data) => this.setState({
                 cartel: data.results,
-                numeroDePagina: this.state.numeroDePagina +1
+                numeroDePagina: this.state.numeroDePagina + 1
             }))
             .catch(err => console.error(err));
 
     }
+
+
+  
+        
+
+    
 
 
     render() {
