@@ -8,24 +8,27 @@ import { Link } from "react-router-dom";
 
 function Header(props) {
     return (
-        <nav>
-            <ul class="main-nav">
+        <nav className="nav">
+            <ul className="main-nav">
 
-                <li>  <Link to="/home"> Home </Link> </li>
+                <li className="logo"> <img src="./img/LOGO.jpg" alt="logo" /></li>
 
-                <li>  <Link to="/populares"> Populares </Link> </li>
+                <li >  <Link className="ul-text" to="/home"> Home </Link> </li>
 
-                <li>  <Link to="/cartel"> En Cartel </Link> </li>
+                <li >  <Link className="ul-text" to="/populares"> Populares </Link> </li>
 
-                <li>  <Link to="/favoritos"> Favoritos </Link> </li>
+                <li >  <Link className="ul-text" to="/cartel"> En Cartel </Link> </li>
+
+                <li >  <Link className="ul-text" to="/favoritos"> Favoritos </Link> </li>
+
+                <li>    <Formulario /> </li>
+
+
 
             </ul>
 
-            <ul class="logo">
-                <li> <img src="./img/LOGO.jpg" alt="logo" /></li>
-            </ul>
 
-            <Formulario />
+         
 
         </nav>
     )

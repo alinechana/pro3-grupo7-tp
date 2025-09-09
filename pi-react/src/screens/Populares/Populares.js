@@ -1,4 +1,5 @@
 import React from "react";
+import CardPadre from "../../components/CardPadre/CardPadre"
 
 function Populares (){
 

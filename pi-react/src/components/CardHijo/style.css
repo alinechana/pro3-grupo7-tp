@@ -1,0 +1,16 @@
+.card-container {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    width: 25%;
+
+   
+    
+}
+.card-img{
+    width: 90%;
+}

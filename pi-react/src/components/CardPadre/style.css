@@ -1,0 +1,11 @@
+.contenedor-cards {
+    display: flex; 
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    padding: 20px;
+    justify-content: flex-start;
+    align-items: flex-start;
+   
+}

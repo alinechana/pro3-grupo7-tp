@@ -14,59 +14,50 @@ class Home extends Component {
 
     componentDidMount() {
         fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=85b07e442aa3edd3ac9d0648eef992c3')
-            .then(res => res.json())
-            .then((data) => this.setState({
-                populares: data.results,
-                numeroDePagina: this.state.numeroDePagina +1
-                
-            }))
-            .catch(err => console.error(err));
+        .then(res => res.json())
+        .then((data) => {
+          const resultadosFiltrados = data.results.filter((pelis, index) => index < 4);
+      
+          this.setState({
+            populares: resultadosFiltrados,
+            numeroDePagina: this.state.numeroDePagina + 1
+          });
+        })
+        .catch(err => console.error(err));
 
         fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&api_key=85b07e442aa3edd3ac9d0648eef992c3')
-            .then(res => res.json())
-            .then((data) => this.setState({
-                cartel: data.results,
-                numeroDePagina: this.state.numeroDePagina + 1
-            }))
-            .catch(err => console.error(err));
+        .then(res => res.json())
+        .then((data) => {
+          const resultadosFiltrados = data.results.filter((pelis, index) => index < 4);
+      
+          this.setState({
+            cartel: resultadosFiltrados,
+            numeroDePagina: this.state.numeroDePagina + 1
+          });
+        })
+        .catch(err => console.error(err));
 
     }
 
-
-  
-        
-
-    
-
-
     render() {
         return (
-            <React.Fragment> 
+            <React.Fragment>
 
-          
-                   <CardPadre
-                        title= "Peliculas populares"
-                        ruta= "/populares"
-                        peliculas={this.state.populares}
-             
-                    />
-                   
-      
+                <CardPadre
+                    title="Peliculas populares"
+                    ruta="/populares"
+                    peliculas={this.state.populares}
 
-           
-                   <CardPadre
-                        title= "Peliculas en cartel"
-                        ruta= "/cartel"
-                        peliculas={this.state.cartel}
-             
-                    />
-                   
-           
-             
+                />
+
+                <CardPadre
+                    title="Peliculas en cartel"
+                    ruta="/cartel"
+                    peliculas={this.state.cartel}
+
+                />
+
             </React.Fragment>
-           
-
-
 
         )
     }

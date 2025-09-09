@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import { Link } from 'react-router-dom';
 import CardHijo from "../CardHijo/CardHijo";
+import "../CardPadre/style.css"
 
 class CardPadre extends Component {
     constructor (props){

@@ -1,16 +1,13 @@
 import React from "react";
-
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-
 import { Switch, Route } from 'react-router-dom';
-
 import Home from "./screens/Home/Home";
 import Populares from "./screens/Populares/Populares"
 import Cartel from "./screens/Cartel/Cartel"
 
 
-import logo from './logo.svg';
+
 import './App.css';
 
 function App() {
@@ -25,9 +22,6 @@ function App() {
         <Route path="/" component={Home} exact={true} />
         <Route path="/populares" component={Populares} />
         <Route path="/cartel" component={Cartel} />
-
-        
-
       </Switch>
    
 
