@@ -3,7 +3,7 @@ import "../Footer/style.css"
 
 function Footer (){
     return (
-        <p>Aline Chana y Justina Navarro</p>
+        <p class="footer">Aline Chana y Justina Navarro</p>
     )
 }
 

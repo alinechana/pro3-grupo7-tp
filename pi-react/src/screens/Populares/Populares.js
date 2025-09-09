@@ -4,7 +4,7 @@ import CardPadre from "../../components/CardPadre/CardPadre"
 function Populares (){
 
     return(
-        <h2> Peliculas Populares </h2>
+        <h2> </h2>
     )
 
    
