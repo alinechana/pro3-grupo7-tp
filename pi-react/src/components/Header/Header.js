@@ -11,7 +11,7 @@ function Header(props) {
         <nav className="nav">
             <ul className="main-nav">
 
-                <li className="logo"> <img src="./public/img/logo.jpg" /></li>
+                <li className="logo"> <img class="logo" src="/img/logo.jpg" /></li>
 
                 <li >  <Link className="ul-text" to="/home"> Home </Link> </li>
 

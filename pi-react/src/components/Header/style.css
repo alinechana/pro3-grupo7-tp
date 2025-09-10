@@ -10,9 +10,13 @@
     
 }
 
-
-
 .ul-text{
     text-decoration: none;
     color: black;
+}
+
+.logo{
+    border-radius: 100%;
+    width: 25%;
+    length: 30%;
 }
