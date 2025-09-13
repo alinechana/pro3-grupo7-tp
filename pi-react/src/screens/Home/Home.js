@@ -47,6 +47,7 @@ class Home extends Component {
                     title="Peliculas populares"
                     ruta="/populares"
                     peliculas={this.state.populares}
+                    mostrarVerMas={true}
 
                 />
 
@@ -54,6 +55,7 @@ class Home extends Component {
                     title="Peliculas en cartel"
                     ruta="/cartel"
                     peliculas={this.state.cartel}
+                    mostrarVerMas={true}
 
                 />
 

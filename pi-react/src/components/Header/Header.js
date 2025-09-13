@@ -13,7 +13,7 @@ function Header(props) {
 
                 <li className="logo"> <img class="logo" src="/img/logo.jpg" /></li>
 
-                <li >  <Link className="ul-text" to="/home"> Home </Link> </li>
+                <li >  <Link className="ul-text" to="/"> Home </Link> </li>
 
                 <li >  <Link className="ul-text" to="/populares"> Populares </Link> </li>
 

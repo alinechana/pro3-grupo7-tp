@@ -7,10 +7,20 @@
     flex-direction: row;
     justify-content: center;
     width: 25%;
+ 
 
    
     
 }
 .card-img{
     width: 90%;
+}
+
+.b-description {
+    background-color: #233344;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 70%;
+    font-size: medium;
 }
