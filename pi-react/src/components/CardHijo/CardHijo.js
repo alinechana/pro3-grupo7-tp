@@ -15,20 +15,7 @@ class CardHijo extends Component {
        
       }
 
-      componentDidMount(){
-        let favoritosLocalStorage = localStorage.getItem("favoritos")
-        let favoritosParse = JSON.parse(favoritosLocalStorage)
-
-        if (favoritosParse != null) {
-            if (favoritosParse.includes(this.props.id)) {
-                this.setState({
-                    esFavorito: true
-                })
-                
-            }
-        }
-
-      }
+    
     
       cambiar = () => {
         this.setState({
@@ -38,30 +25,7 @@ class CardHijo extends Component {
     
     }
 
-    agregarFavoritos = (id) => {
-
-        let favoritos = []
-        let favoritosLocalStorage = localStorage.getItem("favoritos")
-        let favoritosParse = JSON.parse(favoritosLocalStorage)
-
-        if (favoritosParse != null) {
-            favoritosParse.push(id)
-            let favoritosToString = JSON.stringify(favoritosParse)
-            localStorage.setItem("favoritos",favoritosToString)
-    
-        } else {
-            favoritos.push(id)
-            let favoritosToString = JSON.stringify(favoritos)
-            localStorage.setItem('favoritos', favoritosToString)
-
-        }
-        
-        
-    }
-
-    quitarFavoritos = () => {
-
-    }
+  
 
     render() {
         return (
@@ -83,13 +47,7 @@ class CardHijo extends Component {
 
                 <button className="b-description" onClick={this.cambiar}>{this.state.textoBoton}</button>
 
-                {this.state.esFavorito ?
                 
-                <button className="Favoritos" onClick={() => this.agregarFavoritos(this.props.id)} > Agregar a Favoritos</button> :
-                
-                <button className="Favoritos" onClick={() => this.quitarFavoritos(this.props.id)} > Borrar de Favoritos</button> 
-                
-                }
 
                 
             </section>

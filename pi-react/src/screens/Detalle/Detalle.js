@@ -12,15 +12,74 @@ class Detalle extends Component {
         }
     }
 
+    componentDidMount() {
+        let favoritosLocalStorage = localStorage.getItem("favoritos")
+        let favoritosParse = JSON.parse(favoritosLocalStorage)
+
+        if (favoritosParse != null) {
+            if (favoritosParse.includes(this.props.id)) {
+                this.setState({
+                    esFavorito: true
+                })
+
+            }
+        }
+
+    }
+
 
 
     componentDidMount(props) {
         fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?&api_key=85b07e442aa3edd3ac9d0648eef992c3`)
             .then((res) => res.json())
-            .then((data) => this.setState({ pelicula: data.results, estaCargando: false }))
+            .then((data) => this.setState({ pelicula: data, estaCargando: false }))
             .catch(err => console.error(err));
 
     }
+
+    agregarFavoritos = (id) => {
+
+        let favoritos = []
+        let favoritosLocalStorage = localStorage.getItem("favoritos")
+        let favoritosParse = JSON.parse(favoritosLocalStorage)
+
+        if (favoritosParse != null) {
+            favoritosParse.push(id)
+            let favoritosToString = JSON.stringify(favoritosParse)
+            localStorage.setItem("favoritos",favoritosToString)
+            this.setState({
+                esFavorito: true
+            })
+    
+        } else {
+            favoritos.push(id)
+            let favoritosToString = JSON.stringify(favoritos)
+            localStorage.setItem('favoritos', favoritosToString)
+            this.setState({
+                esFavorito: true
+            })
+
+        }
+        
+    }
+
+    quitarFavoritos = (id) => {
+
+        let favoritosLocalStorage = localStorage.getItem("favoritos")
+        let favoritosParse = JSON.parse(favoritosLocalStorage)
+
+        favoritosParse.filter((idFav) => 
+            idFav != id
+        )
+        let favoritosToString = JSON.stringify(favoritosParse)
+        localStorage.setItem('favoritos', favoritosToString)
+        this.setState({
+                esFavorito: false
+    })
+    
+    
+    }
+
     render() {
         return (
             <React.Fragment>
@@ -38,8 +97,17 @@ class Detalle extends Component {
                         <p className="card-description"> {this.state.pelicula.overview}</p>
                         <p className="card-release" id="release-date"><strong>Fecha de estreno:</strong> {this.state.pelicula.release_date}</p>
                         <p className="card-duration"><strong>Duración:</strong> {this.state.pelicula.run_time}</p>
-                        <p className="card-rating" id="votes"><strong>Puntuación:</strong> {this.state.pelicula.popularity}</p>
-                        <p className="card-genre" ><strong>Genero:</strong> {this.state.pelicula.genres.name}</p>
+                        <p className="card-rating" id="votes"><strong>Puntuación:</strong> {this.state.pelicula.rating}</p>
+                        <p className="card-genre" ><strong>Genero:</strong> {this.state.pelicula.with_genres}</p>
+
+                        {this.state.esFavorito ?
+
+                            <button className="Favoritos" onClick={() => this.quitarFavoritos(this.props.id)} > Borrar de Favoritos</button> :
+
+                            <button className="Favoritos" onClick={() => this.agregarFavoritos(this.props.id)} > Agregar a Favoritos</button> 
+
+
+                        }
 
                     </section>
 

@@ -26,7 +26,7 @@ function App() {
         <Route path="/" component={Home} exact={true} />
         <Route path="/populares" component={Populares} />
         <Route path="/cartel" component={Cartel} />
-        <Route path="/resultados" component={Resultados}/>
+        <Route path="/resultados/:query" component={Resultados}/>
         <Route path="/detalle/:id" component={Detalle} />
         <Route path="/favoritos" component={Favoritos} />
         
