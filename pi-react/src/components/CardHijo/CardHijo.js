@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import "../CardHijo/style.css"
+import {Link} from 'react-router-dom'; 
 
 
 class CardHijo extends Component {
@@ -8,9 +9,25 @@ class CardHijo extends Component {
 
         this.state ={
             verDescripcion : false,
-            textoBoton: "Ver descripción"
+            textoBoton: "Ver descripción",
+            esFavorito: false
           }
        
+      }
+
+      componentDidMount(){
+        let favoritosLocalStorage = localStorage.getItem("favoritos")
+        let favoritosParse = JSON.parse(favoritosLocalStorage)
+
+        if (favoritosParse != null) {
+            if (favoritosParse.includes(this.props.id)) {
+                this.setState({
+                    esFavorito: true
+                })
+                
+            }
+        }
+
       }
     
       cambiar = () => {
@@ -21,6 +38,31 @@ class CardHijo extends Component {
     
     }
 
+    agregarFavoritos = (id) => {
+
+        let favoritos = []
+        let favoritosLocalStorage = localStorage.getItem("favoritos")
+        let favoritosParse = JSON.parse(favoritosLocalStorage)
+
+        if (favoritosParse != null) {
+            favoritosParse.push(id)
+            let favoritosToString = JSON.stringify(favoritosParse)
+            localStorage.setItem("favoritos",favoritosToString)
+    
+        } else {
+            favoritos.push(id)
+            let favoritosToString = JSON.stringify(favoritos)
+            localStorage.setItem('favoritos', favoritosToString)
+
+        }
+        
+        
+    }
+
+    quitarFavoritos = () => {
+
+    }
+
     render() {
         return (
             <section className="card-container">
@@ -29,13 +71,27 @@ class CardHijo extends Component {
                     src={`https://image.tmdb.org/t/p/w500${this.props.pelicula.poster_path}`}
                     alt={this.props.pelicula.title}
                 />
+                <Link to={`/detalle/${this.props.pelicula.id}`} > 
                 <h3 className="card-title">{this.props.pelicula.title}</h3>
+        
+                </Link>
+                
 
                 {this.state.verDescripcion && ( //si verdescripcion es true, muestra la descripcion
                     <p className="card-description">{this.props.pelicula.overview}</p>
                 )}
 
                 <button className="b-description" onClick={this.cambiar}>{this.state.textoBoton}</button>
+
+                {this.state.esFavorito ?
+                
+                <button className="Favoritos" onClick={() => this.agregarFavoritos(this.props.id)} > Agregar a Favoritos</button> :
+                
+                <button className="Favoritos" onClick={() => this.quitarFavoritos(this.props.id)} > Borrar de Favoritos</button> 
+                
+                }
+
+                
             </section>
 
 

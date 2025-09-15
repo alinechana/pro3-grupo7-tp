@@ -1,12 +1,12 @@
 import React from "react";
 
-
-function DetalleCartel(props) {
+function Favoritos() {
 
     return(
+
         <h1> </h1>
     )
     
 }
 
-export default DetalleCartel
+export default Favoritos

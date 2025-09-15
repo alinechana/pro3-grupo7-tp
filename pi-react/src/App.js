@@ -3,9 +3,13 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { Switch, Route } from 'react-router-dom';
 import Home from "./screens/Home/Home";
-import Populares from "./screens/Populares/Populares"
-import Cartel from "./screens/Cartel/Cartel"
+import Populares from "./screens/Populares/Populares";
+import Cartel from "./screens/Cartel/Cartel";
+import Resultados from "./screens/Resultados/Resultados";
+import Detalle from "./screens/Detalle/Detalle";
+import Favoritos from "./screens/Favoritos/Favoritos";
 
+import Error from "./screens/Error/Error"; 
 
 
 import './App.css';
@@ -22,6 +26,12 @@ function App() {
         <Route path="/" component={Home} exact={true} />
         <Route path="/populares" component={Populares} />
         <Route path="/cartel" component={Cartel} />
+        <Route path="/resultados" component={Resultados}/>
+        <Route path="/detalle/:id" component={Detalle} />
+        <Route path="/favoritos" component={Favoritos} />
+        
+        <Route component={Error} /> 
+
       </Switch>
    
 
