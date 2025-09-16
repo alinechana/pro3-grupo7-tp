@@ -35,17 +35,24 @@ class CardHijo extends Component {
                     src={`https://image.tmdb.org/t/p/w500${this.props.pelicula.poster_path}`}
                     alt={this.props.pelicula.title}
                 />
-                <Link to={`/detalle/${this.props.pelicula.id}`} > 
+
+           <div className="title"> 
+           <Link to={`/detalle/${this.props.pelicula.id}`} > 
                 <h3 className="card-title">{this.props.pelicula.title}</h3>
         
                 </Link>
-                
+           </div>
+               
 
-                {this.state.verDescripcion && ( //si verdescripcion es true, muestra la descripcion
+                <div className="div-description"> 
+
+                 {this.state.verDescripcion && ( //si verdescripcion es true, muestra la descripcion
                     <p className="card-description">{this.props.pelicula.overview}</p>
                 )}
 
-                <button className="b-description" onClick={this.cambiar}>{this.state.textoBoton}</button>
+                <button className="b-description" onClick={this.cambiar}>{this.state.textoBoton}</button> </div>
+
+                
 
                 
 

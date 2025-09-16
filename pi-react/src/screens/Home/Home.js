@@ -43,6 +43,8 @@ class Home extends Component {
         return (
             <React.Fragment>
 
+                
+
                 <CardPadre
                     title="Peliculas populares"
                     ruta="/populares"

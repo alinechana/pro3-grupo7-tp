@@ -22,10 +22,10 @@ class Formulario extends Component {
         })
     }
     render() {
-        return (<form onSubmit={(event) => this.prevenirDefault(event)}>
-            <input type="text" onChange={(event) => this.controlarCambios(event)} value={this.state.busqueda}
+        return (<form className="button" onSubmit={(event) => this.prevenirDefault(event)}>
+            <input className="button" type="text" onChange={(event) => this.controlarCambios(event)} value={this.state.busqueda}
             />
-            <button type="submit"> Buscar </button>
+            <button className="button" type="submit"> Buscar </button>
         </form>)
 }
 }

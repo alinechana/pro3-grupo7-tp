@@ -8,7 +8,11 @@ import { Link } from "react-router-dom";
 
 function Header(props) {
     return (
+
+    
         <nav className="nav">
+
+            <h1 className="titleDigital"> Digital Movies</h1>
             <ul className="main-nav">
 
                 <li className="logo"> <img class="logo" src="/img/logo.jpg" /></li>
