@@ -24,8 +24,10 @@ class Resultados extends Component {
             .catch(err => console.error(err));
         }
 
-    componentDidUpdate(){
-        if (this.state.contador >= 1) {
+    componentDidUpdate(prevProps){  //prevProps recibe las propiedades anteriores antes de un cambio
+        if (this.props.match.params.query != prevProps.query) {
+            console.log(prevProps);
+            
 
             fetch(`https://api.themoviedb.org/3/search/movie?query=${this.props.match.params.query}&api_key=85b07e442aa3edd3ac9d0648eef992c3`)
             .then(res => res.json())
