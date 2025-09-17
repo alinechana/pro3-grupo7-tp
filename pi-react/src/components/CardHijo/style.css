@@ -10,15 +10,25 @@
   padding-bottom: 10px;
   overflow: visible;
   height: auto;   
-  transition: width 0.3s ease, transform 0.3s ease; /* animación de agrandamiento */
   background-color: #2F2F4D;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 2%;
+  justify-content: center;
 }
 
-.card-container:hover,
-.card-container.expanded {
-    width: 30%;            /* ancho mayor */
-    transform: scale(0.90); /*  zoom */
+.card-container:hover {
+  background-color:#27273f;
 }
+
+.cardBody{
+  margin-top: 20px;
+}
+
+
 
 .card-img{
   width: 100%;
@@ -56,44 +66,63 @@
 
 }
 
-.div-description{
-  width: 90%;
-  text-align: justify;
-  margin-top: 5px;
-  min-height: auto;  
-  max-height: none;  
+.single-card-movie{
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
-.card-description{
+.cardBody{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+}
+
+.div-description {
+  width: 90%;
+  text-align: justify;
+  margin-top: 5px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-description {
   text-align: justify;
   font-family: "Fjalla One", sans-serif;
   font-weight: 400;
   font-size: small;
-  font-style: normal;
-  max-height: 0;
-  transition: max-height 0.3s ease, opacity 0.3s ease;
   color: #fff;
+  align-self: center;
 }
 
 
 .b-description {
-  margin-top: auto;
+  display: block;        
+  width: 150px;           
+  text-align: center;   
   background: #E8D18E;
   color: #2F2F4D;
   border: none;
   border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0;      
   cursor: pointer;
   font-weight: bold;
   transition: background 0.2s ease;
 }
 
 .b-description:hover {
-  background: #e8d28e83;
+  background: #b09b5c;
 }
 
 .textoMas{
