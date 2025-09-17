@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CardPadre from "../../components/CardPadre/CardPadre"
 import "../Populares/style.css"
+import Formulario from "../../components/Formulario/Formulario"
 
 
 class Populares extends Component {
@@ -10,7 +11,9 @@ class Populares extends Component {
         this.state = {
             populares: [],
             cartel: [],
-            numeroDePagina: 1
+            numeroDePagina: 1,
+            estaCargando: true,
+            buscado: false
             
         }
     }
@@ -21,7 +24,9 @@ class Populares extends Component {
         .then((data) => {
             this.setState({
               populares: data.results,
-              numeroDePagina: this.state.numeroDePagina + 1
+              numeroDePagina: this.state.numeroDePagina + 1,
+              estaCargando: false,
+                buscado: true,
           });
         })
         .catch(err => console.error(err));
@@ -46,6 +51,8 @@ class Populares extends Component {
     render() {
         return (
             <React.Fragment>
+
+                <Formulario> </Formulario>
 
                 
 

@@ -9,3 +9,14 @@
   font-style: normal;
   font-size: medium;
 }
+
+.form{
+  align-self: center;
+  justify-content: center;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.formCuadro{
+  width: 40%;
+}

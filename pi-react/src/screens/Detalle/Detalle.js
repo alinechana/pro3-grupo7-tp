@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Populares from "../Populares/Populares";
 import Cartel from "../Cartel/Cartel";
 import CardPadre from "../../components/CardPadre/CardPadre";
+import "../Detalle/style.css"
 
 class Detalle extends Component {
     constructor() {
@@ -87,21 +88,24 @@ class Detalle extends Component {
                             className="card-img" src={`https://image.tmdb.org/t/p/w500${this.state.pelicula.poster_path}`}
                             alt={this.state.pelicula.title} />
 
+                        <div className="cardBody"> 
+
                         <h3 className="card-title"> {this.state.pelicula.title}</h3>
                         <p className="card-description"> {this.state.pelicula.overview}</p>
-                        <p className="card-release" id="release-date"><strong>Fecha de estreno:</strong> {this.state.pelicula.release_date}</p>
+                        <p className="card-release" ><strong>Fecha de estreno:</strong> {this.state.pelicula.release_date}</p>
                         <p className="card-duration"><strong>Duración:</strong> {this.state.pelicula.run_time}</p>
-                        <p className="card-rating" id="votes"><strong>Puntuación:</strong> {this.state.pelicula.rating}</p>
+                        <p className="card-rating" ><strong>Puntuación:</strong> {this.state.pelicula.rating}</p>
                         <p className="card-genre" ><strong>Genero:</strong> {this.state.pelicula.with_genres}</p>
 
                         {this.state.esFavorito ?
 
-                            <button className="Favoritos" onClick={() => this.quitarFavoritos(this.props.id)} > Borrar de Favoritos</button> :
+                            <button className="b-favoritos" onClick={() => this.quitarFavoritos(this.props.id)} > Borrar de Favoritos</button> :
 
-                            <button className="Favoritos" onClick={() => this.agregarFavoritos(this.props.id)} > Agregar a Favoritos</button> 
+                            <button className="b-favoritos" onClick={() => this.agregarFavoritos(this.props.id)} > Agregar a Favoritos</button> 
 
 
                         }
+                        </div>
 
                     </section>
 
