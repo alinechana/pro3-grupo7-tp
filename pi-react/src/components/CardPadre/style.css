@@ -1,14 +1,10 @@
 .contenedor-cards {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-    padding: 20px;
-    justify-content: flex-start;
+    flex-wrap: wrap;      
+    justify-content: center; 
+    align-items: flex-start;
+    gap: 20px;            
     width: 100%;
-    justify-content: center;
-    height: 25%;
 
 }
 

@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {withRouter} from "react-router-dom";
+import "../Formulario/style.css"
 
 class Formulario extends Component {
     constructor(props){
@@ -22,8 +23,8 @@ class Formulario extends Component {
         })
     }
     render() {
-        return (<form className="button" onSubmit={(event) => this.prevenirDefault(event)}>
-            <input className="button" type="text" onChange={(event) => this.controlarCambios(event)} value={this.state.busqueda}
+        return (<form className="form" onSubmit={(event) => this.prevenirDefault(event)}>
+            <input className="formCuadro" type="text" onChange={(event) => this.controlarCambios(event)} value={this.state.busqueda}
             />
             <button className="button" type="submit"> Buscar </button>
         </form>)

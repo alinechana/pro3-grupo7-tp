@@ -13,27 +13,21 @@ class Detalle extends Component {
     }
 
     componentDidMount() {
+        fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?&api_key=85b07e442aa3edd3ac9d0648eef992c3`)
+            .then((res) => res.json())
+            .then((data) => this.setState({ pelicula: data, estaCargando: false }))
+            .catch(err => console.error(err));
+        
         let favoritosLocalStorage = localStorage.getItem("favoritos")
         let favoritosParse = JSON.parse(favoritosLocalStorage)
 
         if (favoritosParse != null) {
             if (favoritosParse.includes(this.props.id)) {
                 this.setState({
-                    esFavorito: true
-                })
+                    esFavorito: true})
 
             }
         }
-
-    }
-
-
-
-    componentDidMount(props) {
-        fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?&api_key=85b07e442aa3edd3ac9d0648eef992c3`)
-            .then((res) => res.json())
-            .then((data) => this.setState({ pelicula: data, estaCargando: false }))
-            .catch(err => console.error(err));
 
     }
 

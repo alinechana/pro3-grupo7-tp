@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import CardPadre from "../../components/CardPadre/CardPadre"
-
+import "../Cartel/style.css"
 
 class Cartel extends Component {
     constructor(props) {
@@ -65,7 +65,7 @@ class Cartel extends Component {
 
                 }
 
-                <button onClick={() => this.cargarPaginaSiguiente()}> Cargar mas... </button>
+                <button className="button-cargar" onClick={() => this.cargarPaginaSiguiente()}> Cargar mas... </button>
 
             </React.Fragment>
 

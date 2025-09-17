@@ -9,42 +9,49 @@
     font-weight: 400;
     font-style: bold;
     font-size: 35px;
-
-
-
+    color: white;
 }
 
 .main-nav {
-    list-style: none;
-    padding: 4px 2px;
-    margin: 0;
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
-    background-color: rgba(56, 46, 54, 0.278);
     align-items: center;
-
-
-}
+    justify-content: space-between;
+    background-color:  #2A2344;
+    padding: 0.5rem 2rem;
+    list-style: none;
+  }
 
 .ul-text {
     text-decoration: none;
-    color: black;
-    justify-items: center;
-    align-self: center;
+    color: white;
+    display: flex;
+        gap: 2rem;
+        flex: 1;
+        justify-content: center;
     font-family: "Fjalla One", sans-serif;
     font-weight: 400;
     font-style: bold;
     font-size: 18px;
+    font-weight: bold;
+    transition: color 0.2s ease-in-out;
+}
 
+.ul-text:hover {
+    color: #E8D18E;
+  }
 
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: "Fjalla One", sans-serif;
+    font-weight: 400;
+    font-style: bold;
+    font-size: 18px;
 
 }
 
-.logo {
-    border-radius: 100%;
-    width: 25%;
-    length: 30%;
-    padding: 5px;
+.logo img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
 }

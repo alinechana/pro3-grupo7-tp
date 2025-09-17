@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {Link} from 'react-router-dom'; 
+import "../Resultados/style.css"
 
 class Resultados extends Component {
     constructor(props) {
@@ -46,16 +47,20 @@ class Resultados extends Component {
 
 
         render() {
+            const query = this.props.match.params.query;
             return ( 
             
             <React.Fragment>
 
-                {this.state.estaCargando ?
+                    {this.state.estaCargando ? (
+                        <p> Cargando....</p>
+                    ) : this.state.peliculas.length === 0 ? (
+                        <p>No hay resultados para "{query}"</p>
+                    ) : (
 
-                    <p> Cargando....</p>
 
-                    : 
-                    
+
+
                         <div className="contenedor-cards">
                             {this.state.peliculas.map((pelicula, i) => (
                                 <section className="card-container">
@@ -80,7 +85,7 @@ class Resultados extends Component {
                             ))}
                     </div>
                
-                    
+                    )
     
 
                 }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import CardPadre from "../../components/CardPadre/CardPadre"
+import "../Populares/style.css"
 
 
 class Populares extends Component {
@@ -62,7 +63,7 @@ class Populares extends Component {
 
                 }
 
-                <button onClick={() => this.cargarPaginaSiguiente()}> Cargar mas... </button>
+                <button className="button-cargar" onClick={() => this.cargarPaginaSiguiente()}> Cargar mas... </button>
 
             </React.Fragment>
 

@@ -1,7 +1,28 @@
-.button {
-    font-family: "Fjalla One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    padding: 8px 2px;
-    border: 1px solid; 
+.form{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
+
+.formCuadro{
+    padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.button{
+    padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  border: none;
+  background-color: #34588c;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.button:hover {
+    background-color: #28446e;
+  }

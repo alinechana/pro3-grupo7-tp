@@ -39,7 +39,7 @@ class CardPadre extends Component {
                 <div className="verMas"> 
  
                 {this.props.mostrarVerMas && (
-                    <Link to={this.props.ruta}>Ver más</Link>  // si es true, renderiza el ver mas (screen home)
+                    <Link className="textoMas" to={this.props.ruta}>Ver más</Link>  // si es true, renderiza el ver mas (screen home)
                                                             // si es false, no lo renderiza ( screen populares y en cartel)
                 )}
                 </div>
