@@ -83,19 +83,19 @@ class Detalle extends Component {
 
                     <p> Cargando....</p>
 
-                    : <section className="card-container">
+                    : <section className="card-container-detalle">
                         <img
                             className="card-img" src={`https://image.tmdb.org/t/p/w500${this.state.pelicula.poster_path}`}
                             alt={this.state.pelicula.title} />
 
                         <div className="cardBody"> 
 
-                        <h3 className="card-title"> {this.state.pelicula.title}</h3>
-                        <p className="card-description"> {this.state.pelicula.overview}</p>
+                        <h3 className="card-title-detalle"> {this.state.pelicula.title}</h3>
+                        <p className="card-description-detalle"> {this.state.pelicula.overview}</p>
                         <p className="card-release" ><strong>Fecha de estreno:</strong> {this.state.pelicula.release_date}</p>
-                        <p className="card-duration"><strong>Duración:</strong> {this.state.pelicula.run_time}</p>
-                        <p className="card-rating" ><strong>Puntuación:</strong> {this.state.pelicula.rating}</p>
-                        <p className="card-genre" ><strong>Genero:</strong> {this.state.pelicula.with_genres}</p>
+                        <p className="card-duration"><strong>Duración:</strong> {this.state.pelicula.runtime} min</p>
+                        <p className="card-rating" ><strong>Puntuación:</strong> {this.state.pelicula.vote_average}</p>
+                        <p className="card-genre" ><strong>Genero:</strong> {this.state.pelicula.genres.map(g => g.name).join(", ")}</p>
 
                         {this.state.esFavorito ?
 

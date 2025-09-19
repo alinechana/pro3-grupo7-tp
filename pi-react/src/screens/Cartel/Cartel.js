@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CardPadre from "../../components/CardPadre/CardPadre"
 import "../Cartel/style.css"
+import Formulario from "../../components/Formulario/Formulario"
 
 class Cartel extends Component {
     constructor(props) {
@@ -9,7 +10,9 @@ class Cartel extends Component {
         this.state = {
             populares: [],
             cartel: [],
-            numeroDePagina: 1
+            numeroDePagina: 1,
+            estaCargando: true,
+            buscado: false
             
         }
     }
@@ -18,11 +21,13 @@ class Cartel extends Component {
         fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&api_key=85b07e442aa3edd3ac9d0648eef992c3')
         .then(res => res.json())
         .then((data) => {
-          const resultadosFiltrados = data.results.filter((pelis, index) => index < 4);
+          
       
           this.setState({
-            cartel: resultadosFiltrados,
-            numeroDePagina: this.state.numeroDePagina + 1
+            cartel: data.results,
+              numeroDePagina: this.state.numeroDePagina + 1,
+              estaCargando: false,
+                buscado: true,
           });
         })
         .catch(err => console.error(err));
@@ -47,6 +52,8 @@ class Cartel extends Component {
     render() {
         return (
             <React.Fragment>
+
+            <Formulario> </Formulario>
 
                 
 

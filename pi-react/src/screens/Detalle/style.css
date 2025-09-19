@@ -1,12 +1,12 @@
 
-.card-container {
+.card-container-detalle {
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 45%;            
+  width: 43%;            
   padding-bottom: 10px;
   overflow: visible;
   height: auto;   
@@ -56,8 +56,8 @@
 
 }
 
-.card-title {
-  font-size: 1rem;
+.card-title-detalle{
+  font-size: 2rem;
   text-align: center;
   margin: 0;
   font-family: "Fjalla One", sans-serif;
@@ -100,11 +100,11 @@
   align-items: center;
 }
 
-.card-description {
+.card-description-detalle {
   text-align: justify;
   font-family: "Fjalla One", sans-serif;
   font-weight: 400;
-  font-size: small;
+  font-size: medium;
   color: #fff;
   align-self: center;
 }
@@ -153,6 +153,7 @@
   font-weight: 400;
   font-size: small;
   color: #ffffff;
+  font-size: medium;
 }
 .card-duration{
   text-align: justify;
@@ -160,6 +161,7 @@
   font-weight: 400;
   font-size: small;
   color: #fff;
+  font-size: medium;
 }
 .card-rating{
   text-align: justify;
@@ -167,6 +169,7 @@
   font-weight: 400;
   font-size: small;
   color: #fff;
+  font-size: medium;
 }
 
 .card-genre{
@@ -175,6 +178,7 @@
   font-weight: 400;
   font-size: small;
   color: #fff;
+  font-size: medium;
 }
 
 .cardBody{
