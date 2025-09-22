@@ -15,7 +15,7 @@ class CardHijo extends Component {
        
       }
 
-      componentDidMount(props) {
+      componentDidMount() {
 
 
 
@@ -76,10 +76,12 @@ class CardHijo extends Component {
         let favoritosLocalStorage = localStorage.getItem("favoritos")
         let favoritosParse = JSON.parse(favoritosLocalStorage)
 
-        favoritosParse.filter((idFav) =>
+
+
+        let filtrados = favoritosParse.filter((idFav) =>
             idFav != id)
 
-        let favoritosToString = JSON.stringify(favoritosParse)
+        let favoritosToString = JSON.stringify(filtrados)
         localStorage.setItem('favoritos', favoritosToString)
         this.setState({
             esFavorito: false
