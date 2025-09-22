@@ -16,16 +16,28 @@ class Detalle extends Component {
     componentDidMount() {
         fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?&api_key=85b07e442aa3edd3ac9d0648eef992c3`)
             .then((res) => res.json())
-            .then((data) => this.setState({ pelicula: data, estaCargando: false }))
+            .then((data) =>
+                this.setState({ pelicula: data, estaCargando: false })
+
+
+            )
             .catch(err => console.error(err));
-        
+
+
         let favoritosLocalStorage = localStorage.getItem("favoritos")
         let favoritosParse = JSON.parse(favoritosLocalStorage)
 
-        if (favoritosParse != null) {
-            if (favoritosParse.includes(this.props.id)) {
+        console.log(favoritosLocalStorage, favoritosParse)
+
+        if (favoritosParse !== null) {
+
+            
+            console.log(this.props.match.params.id)
+            const idANumero = +this.props.match.params.id
+            if (favoritosParse.includes(idANumero)) {
                 this.setState({
-                    esFavorito: true})
+                    esFavorito: true
+                })
 
             }
         }
@@ -41,11 +53,11 @@ class Detalle extends Component {
         if (favoritosParse != null) {
             favoritosParse.push(id)
             let favoritosToString = JSON.stringify(favoritosParse)
-            localStorage.setItem("favoritos",favoritosToString)
+            localStorage.setItem("favoritos", favoritosToString)
             this.setState({
                 esFavorito: true
             })
-    
+
         } else {
             favoritos.push(id)
             let favoritosToString = JSON.stringify(favoritos)
@@ -55,7 +67,7 @@ class Detalle extends Component {
             })
 
         }
-        
+
     }
 
     quitarFavoritos = (id) => {
@@ -63,16 +75,16 @@ class Detalle extends Component {
         let favoritosLocalStorage = localStorage.getItem("favoritos")
         let favoritosParse = JSON.parse(favoritosLocalStorage)
 
-        favoritosParse.filter((idFav) => 
+        favoritosParse.filter((idFav) =>
             idFav != id
         )
         let favoritosToString = JSON.stringify(favoritosParse)
         localStorage.setItem('favoritos', favoritosToString)
         this.setState({
-                esFavorito: false
-    })
-    
-    
+            esFavorito: false
+        })
+
+
     }
 
     render() {
@@ -88,23 +100,23 @@ class Detalle extends Component {
                             className="card-img" src={`https://image.tmdb.org/t/p/w500${this.state.pelicula.poster_path}`}
                             alt={this.state.pelicula.title} />
 
-                        <div className="cardBody"> 
+                        <div className="cardBody">
 
-                        <h3 className="card-title-detalle"> {this.state.pelicula.title}</h3>
-                        <p className="card-description-detalle"> {this.state.pelicula.overview}</p>
-                        <p className="card-release" ><strong>Fecha de estreno:</strong> {this.state.pelicula.release_date}</p>
-                        <p className="card-duration"><strong>Duración:</strong> {this.state.pelicula.runtime} min</p>
-                        <p className="card-rating" ><strong>Puntuación:</strong> {this.state.pelicula.vote_average}</p>
-                        <p className="card-genre" ><strong>Genero:</strong> {this.state.pelicula.genres.map(g => g.name).join(", ")}</p>
+                            <h3 className="card-title-detalle"> {this.state.pelicula.title}</h3>
+                            <p className="card-description-detalle"> {this.state.pelicula.overview}</p>
+                            <p className="card-release" ><strong>Fecha de estreno:</strong> {this.state.pelicula.release_date}</p>
+                            <p className="card-duration"><strong>Duración:</strong> {this.state.pelicula.runtime} min</p>
+                            <p className="card-rating" ><strong>Puntuación:</strong> {this.state.pelicula.vote_average}</p>
+                            <p className="card-genre" ><strong>Genero:</strong> {this.state.pelicula.genres.map(g => g.name).join(", ")}</p>
 
-                        {this.state.esFavorito ?
+                            {this.state.esFavorito ?
 
-                            <button className="b-favoritos" onClick={() => this.quitarFavoritos(this.props.id)} > Borrar de Favoritos</button> :
+                                <button className="b-favoritos" onClick={() => this.quitarFavoritos(this.state.pelicula.id)} > Borrar de Favoritos</button> :
 
-                            <button className="b-favoritos" onClick={() => this.agregarFavoritos(this.props.id)} > Agregar a Favoritos</button> 
+                                <button className="b-favoritos" onClick={() => this.agregarFavoritos(this.state.pelicula.id)} > Agregar a Favoritos</button>
 
 
-                        }
+                            }
                         </div>
 
                     </section>

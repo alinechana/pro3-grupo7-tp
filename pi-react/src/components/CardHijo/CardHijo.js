@@ -22,8 +22,19 @@ class CardHijo extends Component {
             verDescripcion: !this.state.verDescripcion,
             textoBoton: this.state.verDescripcion ? "Ver descripción" : "Ver menos"
         });
-    
+
+      }
+
+    quitarDeFavoritos(id) {
+        this.setState({
+            esFavorito: false,});
+
+        if (this.props.quitarDeFavoritos) {
+            this.props.quitarDeFavoritos(this.props.id)
+        }
     }
+    
+    
 
   
 
@@ -70,7 +81,7 @@ class CardHijo extends Component {
 
         )
     }
-
-  }
+}
+  
 export default CardHijo
 
