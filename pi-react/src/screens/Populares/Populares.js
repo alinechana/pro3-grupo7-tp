@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CardPadre from "../../components/CardPadre/CardPadre"
 import "../Populares/style.css"
-import Formulario from "../../components/Formulario/Formulario"
+
 
 
 class Populares extends Component {
@@ -13,7 +13,8 @@ class Populares extends Component {
             cartel: [],
             numeroDePagina: 1,
             estaCargando: true,
-            buscado: false
+            busqueda: "" //guarda lo que escribe el usuario
+            
             
         }
     }
@@ -26,7 +27,7 @@ class Populares extends Component {
               populares: data.results,
               numeroDePagina: this.state.numeroDePagina + 1,
               estaCargando: false,
-                buscado: true,
+              
           });
         })
         .catch(err => console.error(err));
@@ -48,11 +49,29 @@ class Populares extends Component {
         
       }
 
+      actualizarBusqueda = (evento) => {
+        this.setState({
+            busqueda: evento.target.value
+        })
+    }
+
     render() {
+        const peliculasFiltradas = this.state.populares.filter(pelicula =>
+            pelicula.title.toLowerCase().includes(this.state.busqueda.toLowerCase())
+        );
+
         return (
             <React.Fragment>
 
-                <Formulario> </Formulario>
+                 <form className="form-busqueda">
+                    <input className="input-busqueda"
+                        type="text"
+                        placeholder="Buscar película..."
+                        value={this.state.busqueda}
+                        onChange={this.actualizarBusqueda}
+                    />
+                </form>
+                
 
                 
 
@@ -61,7 +80,7 @@ class Populares extends Component {
                     <CardPadre
                         title="Peliculas populares"
                         ruta="/populares"
-                        peliculas={this.state.populares}
+                        peliculas={peliculasFiltradas}
                         mostrarVerMas={false}
 
                     />
