@@ -12,6 +12,7 @@ class Detalle extends Component {
             estaCargando: true
         }
     }
+    
 
     componentDidMount() {
         fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?&api_key=85b07e442aa3edd3ac9d0648eef992c3`)

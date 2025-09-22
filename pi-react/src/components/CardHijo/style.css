@@ -84,18 +84,6 @@
   align-content: center;
 }
 
-.div-description {
-  width: 90%;
-  text-align: justify;
-  margin-top: 5px;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
 .card-description {
   text-align: justify;
@@ -119,6 +107,7 @@
   cursor: pointer;
   font-weight: bold;
   transition: background 0.2s ease;
+  margin-top: 5%;
 }
 
 .b-description:hover {
@@ -143,3 +132,23 @@
   flex-direction: row;
   justify-content: center;
 }
+
+.b-favoritos{
+  display: block;        
+  width: 150px;           
+  text-align: center;   
+  background: #E8D18E;
+  color: #2F2F4D;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0;      
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s ease;
+  margin-top: 5%;
+}
+
+.b-favoritos:hover {
+  background: #b09b5c;
+}
+

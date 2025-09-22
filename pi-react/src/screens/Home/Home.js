@@ -39,13 +39,9 @@ class Home extends Component {
 
     }
 
-    
-
     render() {
         return (
             <React.Fragment>
-
-                
 
                 <CardPadre
                     title="Peliculas populares"

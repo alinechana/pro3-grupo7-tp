@@ -15,28 +15,83 @@ class CardHijo extends Component {
        
       }
 
-    
-    
-      cambiar = () => {
-        this.setState({
-            verDescripcion: !this.state.verDescripcion,
-            textoBoton: this.state.verDescripcion ? "Ver descripción" : "Ver menos"
-        });
+      componentDidMount(props) {
 
+
+
+        let favoritosLocalStorage = localStorage.getItem("favoritos")
+        let favoritosParse = JSON.parse(favoritosLocalStorage)
+
+        console.log(favoritosLocalStorage, favoritosParse)
+
+        if (favoritosParse !== null) {
+
+    
+            if (favoritosParse.includes(this.props.pelicula.id)) {
+                this.setState({
+                    esFavorito: true
+                })
+
+            }
+        }
+
+    }
+
+    cambiar = () => {
+        this.setState({
+        verDescripcion: !this.state.verDescripcion,
+        textoBoton: this.state.verDescripcion ? "Ver descripción" : "Ver menos"
+        })
       }
 
-    quitarDeFavoritos(id) {
-        this.setState({
-            esFavorito: false,});
+    agregarFavoritos = (id) => {
 
-        if (this.props.quitarDeFavoritos) {
-            this.props.quitarDeFavoritos(this.props.id)
+        let favoritos = []
+        let favoritosLocalStorage = localStorage.getItem("favoritos")
+        let favoritosParse = JSON.parse(favoritosLocalStorage)
+
+        if (favoritosParse != null) {
+            favoritosParse.push(id)
+            let favoritosToString = JSON.stringify(favoritosParse)
+            localStorage.setItem("favoritos", favoritosToString)
+            this.setState({
+                esFavorito: true
+            })
+
+        } else {
+            favoritos.push(id)
+            let favoritosToString = JSON.stringify(favoritos)
+            localStorage.setItem('favoritos', favoritosToString)
+            this.setState({
+                esFavorito: true
+            })
+
         }
-    }
-    
-    
 
-  
+    }
+
+    quitarFavoritos = (id) => {
+        console.log(id);
+        
+        let favoritosLocalStorage = localStorage.getItem("favoritos")
+        let favoritosParse = JSON.parse(favoritosLocalStorage)
+
+        favoritosParse.filter((idFav) =>
+            idFav != id)
+
+        let favoritosToString = JSON.stringify(favoritosParse)
+        localStorage.setItem('favoritos', favoritosToString)
+        this.setState({
+            esFavorito: false
+        })
+
+        if(this.props.quitarFavoritos){
+            this.props.quitarFavoritos(this.props.id)
+        }
+
+
+    }
+
 
     render() {
         return (
@@ -56,13 +111,23 @@ class CardHijo extends Component {
                       
 
 
-                        <div className="div-description">
+                      
 
                             {this.state.verDescripcion && ( //si verdescripcion es true, muestra la descripcion
                                 <p className="card-description">{this.props.pelicula.overview}</p>
                             )}
 
-                            <button className="b-description" onClick={this.cambiar}>{this.state.textoBoton}</button> </div>
+                            <button className="b-description" onClick={this.cambiar}>{this.state.textoBoton}</button> 
+                  
+
+                            {this.state.esFavorito ?
+
+                            <button className="b-favoritos" onClick={() => this.quitarFavoritos(this.props.pelicula.id)} > Borrar de Favoritos</button> :
+
+                            <button className="b-favoritos" onClick={() => this.agregarFavoritos(this.props.pelicula.id)} > Agregar a Favoritos</button>
+
+
+}
 
 
 

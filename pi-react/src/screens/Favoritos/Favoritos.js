@@ -1,5 +1,6 @@
 
 import React, { Component } from "react";
+import CardHijo from "../../components/CardHijo/CardHijo";
 
 
 class Favoritos extends Component {
@@ -38,6 +39,13 @@ class Favoritos extends Component {
 
     }
 
+    quitarFavoritos(id){
+        let filtrados = this.state.peliculas.filter((ch) => ch.id !== id)
+        this.setState({
+            peliculas: filtrados
+        })
+    }
+
     render() {
         console.log(this.state.peliculas);
 
@@ -52,28 +60,13 @@ class Favoritos extends Component {
                     :
 
                     <div className="contenedor-cards">
-                        {this.state.peliculas.map((pelicula) => (
-                            <section className="card-container">
-                                <img
-                                    className="card-img" src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`}
-                                    alt={pelicula.title} />
-
-                                <h3 className="card-title"> {pelicula.title}</h3>
-                                <p className="card-description"> {pelicula.overview}</p>
-                                <p className="card-release" id="release-date"><strong>Fecha de estreno:</strong> {pelicula.release_date}</p>
-                                <p className="card-duration"><strong>Duración:</strong> {pelicula.runtime} min</p>
-                                <p className="card-rating" id="votes"><strong>Puntuación:</strong> {pelicula.vote_average}</p>
-                                <p className="card-genre" ><strong>Genero:</strong> {pelicula.genres.map(g => g.name).join(", ")}</p>
+                        {this.state.peliculas.map((ch) => (
+                            <CardHijo pelicula = {ch}
+                                quitarFavoritos = {() => this.quitarFavoritos(ch.id)}
+                            />
                                 
 
-                                <button className="b-favoritos" onClick={() => this.quitarFavoritos(this.state.pelicula.id)} > Borrar de Favoritos</button> 
 
-                    
-
-
-                                
-
-                            </section>
 
                         ))}
                     </div>
