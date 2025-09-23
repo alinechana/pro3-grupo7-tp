@@ -89,3 +89,16 @@ nav {
         grid-template-columns: 4fr 3fr;
     }
 }
+
+@media (min-width: 768px) {
+    body {
+      max-width: 700px; 
+    }
+  }
+
+
+  @media (min-width: 992px) {
+    body {
+      max-width: 960px;
+    }
+  }
